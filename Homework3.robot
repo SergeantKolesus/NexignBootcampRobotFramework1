@@ -30,7 +30,8 @@ Table change SQL request
   ${pre_size} =  PY_HW.Get_table_size
   ${python_result}=  PY_HW.Insert_row_into_table  ${insertion_params}[category]  ${insertion_params}[name]
   ${post_size} =  PY_HW.Get_table_size
-  PY_HW.Compare_sizes_before_and_after_changes  ${pre_size}  ${post_size}  ${1}
+  ${res} =  PY_HW.Compare_sizes_before_and_after_changes  ${pre_size}  ${post_size}  ${1}
+  should be true  ${res}
 
 *** Keywords ***
 
